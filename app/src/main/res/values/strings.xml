@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Game Backlog</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_add">AddActivity</string>
+    <string name="delete_icon">Delete All Games</string>
+    <string name="et_title">Title</string>
+    <string name="et_platform">Platform</string>
+    <string name="et_Day">Day</string>
+    <string name="et_Month">Month</string>
+    <string name="et_Year">Year</string>
 </resources>
