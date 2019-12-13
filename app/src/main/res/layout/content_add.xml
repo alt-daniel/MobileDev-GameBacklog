@@ -65,7 +65,8 @@
                     android:id="@+id/etDay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/et_Day" />
+                    android:hint="@string/et_Day"
+                    android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -79,7 +80,8 @@
                     android:id="@+id/etMonth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/et_Month" />
+                    android:hint="@string/et_Month"
+                    android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -93,7 +95,8 @@
                     android:id="@+id/etYear"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/et_Year" />
+                    android:hint="@string/et_Year"
+                    android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

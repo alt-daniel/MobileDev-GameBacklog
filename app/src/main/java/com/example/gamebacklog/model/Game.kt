@@ -11,7 +11,7 @@ data class Game (
 
     var title: String,
     var platform: String,
-    var Date: Date,
+    var date: Date,
 
     @PrimaryKey(autoGenerate = true)
     var id: Long? = null

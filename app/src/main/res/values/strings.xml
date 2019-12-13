@@ -8,4 +8,5 @@
     <string name="et_Day">Day</string>
     <string name="et_Month">Month</string>
     <string name="et_Year">Year</string>
+    <string name="tv_text">Release: $</string>
 </resources>

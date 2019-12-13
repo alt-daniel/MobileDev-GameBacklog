@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.gamebacklog.model.Game
 import kotlinx.coroutines.CoroutineScope
@@ -12,6 +13,7 @@ import kotlinx.coroutines.launch
 import java.util.*
 
 @Database(entities = [Game::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class GameBacklogRoomDatabase : RoomDatabase() {
 
     abstract fun gameDao(): GameDao
@@ -36,7 +38,7 @@ abstract class GameBacklogRoomDatabase : RoomDatabase() {
                                     super.onCreate(db)
                                     INSTANCE?.let { database ->
                                         CoroutineScope(Dispatchers.IO).launch {
-                                            database.gameDao().insertGame(Game("Title", "", Date()))
+                                            database.gameDao().insertGame(Game("Title111", "PS4", Date()))
                                         }
                                     }
                                 }
