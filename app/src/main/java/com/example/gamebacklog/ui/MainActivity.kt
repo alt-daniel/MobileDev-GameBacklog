@@ -6,6 +6,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -65,9 +66,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    /**
-     * TODO Garbage Bin to delete all Games
-     */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
@@ -75,7 +73,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * TODO Delete on SWIPE TO LEFT
+     * Click on Garbage bin deletes all games
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle action bar item clicks here. The action bar will
@@ -103,11 +101,26 @@ class MainActivity : AppCompatActivity() {
                 return false;
             }
 
+
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
                 val gameToDelete = games[position]
+                val tmp = gameToDelete
+
+                 class UndoDeleteListener : View.OnClickListener {
+
+                    override fun onClick(v: View) {
+                        // Code to undo the user's last action
+                        println("Test undo")
+                        mainActivityViewModel.undoDeleteGame(tmp)
+
+                    }
+                }
+
                 mainActivityViewModel.deleteGame(gameToDelete)
-                Snackbar.make(rvGames, "${gameToDelete.title} is deleted", Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(rvGames, "${gameToDelete.title} is deleted", 5000)
+                    .setAction("UNDO", UndoDeleteListener())
+                    .show()
                 }
             }
 

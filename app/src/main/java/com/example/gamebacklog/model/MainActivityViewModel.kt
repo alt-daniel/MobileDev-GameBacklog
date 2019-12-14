@@ -25,4 +25,10 @@ class MainActivityViewModel(application: Application): AndroidViewModel(applicat
         }
     }
 
+    fun undoDeleteGame(game: Game) {
+        ioScope.launch {
+            gameRepository.insertGame(game)
+        }
+    }
+
 }
