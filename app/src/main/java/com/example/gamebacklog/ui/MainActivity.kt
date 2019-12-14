@@ -124,6 +124,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun deleteAllGames() {
         mainActivityViewModel.deleteAllGames()
-        Snackbar.make(rvGames, "Succesfully Deleted All Games", Snackbar.LENGTH_LONG).show()
+        Snackbar.make(rvGames, "Succesfully deleted ${games.size} Games", Snackbar.LENGTH_LONG).show()
     }
 }

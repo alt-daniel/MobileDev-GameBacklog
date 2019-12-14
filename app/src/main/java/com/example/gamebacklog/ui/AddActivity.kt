@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat
 import java.time.format.DateTimeFormatter
 import java.util.*
 import com.example.gamebacklog.data.StringConverters
+import java.lang.Exception
 
 class AddActivity : AppCompatActivity() {
 
@@ -71,13 +72,20 @@ class AddActivity : AppCompatActivity() {
 
             if (title.isNotBlank() || !platform.isNotBlank()) {
 
+                try {
+                    val stringConverters = StringConverters()
+                    val convertedTitle : String = stringConverters.beautifyString(title)
+                    val convertedPlatform : String = stringConverters.beautifyString(platform)
+                    val game = Game(convertedTitle, convertedPlatform, date)
 
-                val stringConverters = StringConverters()
-                val convertedTitle : String = stringConverters.beautifyString(title)
-                val convertedPlatform : String = stringConverters.beautifyString(platform)
+                    addActivityViewModel.insertGame(game)
+                    Toast.makeText(this,"$convertedTitle is added to the backlog", Toast.LENGTH_SHORT).show()
 
-                val game = Game(convertedTitle, convertedPlatform, date)
-                addActivityViewModel.insertGame(game)
+                } catch (e : Exception) {
+                    println(e)
+                    Toast.makeText(this,"An error occurred", Toast.LENGTH_SHORT).show()
+                }
+
 
             } else {
                 Toast.makeText(this, "One or more fields are empty", Toast.LENGTH_LONG).show()
