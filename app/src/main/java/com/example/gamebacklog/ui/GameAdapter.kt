@@ -46,14 +46,14 @@ class GameAdapter (private val games: List<Game>): RecyclerView.Adapter<GameAdap
 
         fun bind(game: Game) {
 
-            val day = game.date.day.toString()
-            val month = game.date.month.toString()
-            val year = game.date.year.toString()
+            val date = game.date
+            val formatter: java.text.SimpleDateFormat = java.text.SimpleDateFormat("dd MMMM yyyy")
+            val dateConverted = formatter.format(date)
 
 
             itemView.tvTitle.text = game.title
             itemView.tvPlatform.text = game.platform
-            itemView.tvDate.text = "Release: $day $month $year"
+            itemView.tvDate.text = "Release: $dateConverted"
         }
     }
 }

@@ -22,7 +22,7 @@ class GameRepository (context: Context) {
     }
 
     suspend fun deleteGame(game: Game) {
-        return gameDao.deletGame(game)
+        return gameDao.deleteGame(game)
     }
 
     suspend fun deleteAllGames() {

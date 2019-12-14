@@ -18,6 +18,7 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.time.format.DateTimeFormatter
 import java.util.*
+import com.example.gamebacklog.data.StringConverters
 
 class AddActivity : AppCompatActivity() {
 
@@ -69,8 +70,13 @@ class AddActivity : AppCompatActivity() {
             date = formatCustomDate(day, month, year)
 
             if (title.isNotBlank() || !platform.isNotBlank()) {
-                println("Date: $date")
-                val game = Game(title, platform, date)
+
+
+                val stringConverters = StringConverters()
+                val convertedTitle : String = stringConverters.beautifyString(title)
+                val convertedPlatform : String = stringConverters.beautifyString(platform)
+
+                val game = Game(convertedTitle, convertedPlatform, date)
                 addActivityViewModel.insertGame(game)
 
             } else {
@@ -86,7 +92,6 @@ class AddActivity : AppCompatActivity() {
         var date: Date?= null
         date = formatter.parse("$day $month $year")
 
-        return date
-
+    return date
     }
 }

@@ -17,7 +17,7 @@ interface GameDao {
     fun getAllGames(): LiveData<List<Game>>
 
     @Delete
-    suspend fun deletGame(game: Game)
+    suspend fun deleteGame(game: Game)
 
     @Query("Delete FROM game_table")
     suspend fun deleteAllGames()

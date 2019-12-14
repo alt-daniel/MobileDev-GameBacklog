@@ -3,6 +3,9 @@ package com.example.gamebacklog.data
 import androidx.room.TypeConverter
 import java.util.*
 
+/**
+ * TODO RIGHT DATE CONVERTER
+ */
 class Converters {
 
     @TypeConverter
